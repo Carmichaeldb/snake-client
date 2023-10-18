@@ -10,6 +10,8 @@ const connect = function () {
   conn.on('connect', () => {
     console.log("Lets play Snek!");
   });
+ 
+  conn.write("Name: DBC"); // Send username to server...
   conn.on('data', (data) => {
     console.log(data);
   });
