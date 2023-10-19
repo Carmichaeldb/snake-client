@@ -15,12 +15,10 @@ const connect = function () {
   conn.on('connect', () => {
     console.log("Lets play Snek!");
   });
-
   // process.stdin.on('data', (userInput) => {
   //   conn.write(userInput); // Send user input for name to server possibly use this later?
   // });
   conn.write("Name: DBC"); //sending preset username to server
-
   // setTimeout(() => {
   //   conn.write("Move: up");
   // }, 50);
