@@ -1,23 +1,17 @@
-// "Move: up" - move up one square (unless facing down)
-// "Move: down" - move down one square (unless facing up)
-// "Move: left" - move left one square (unless facing right)
-// "Move: right" - move left one square (unless facing left)
-
+const {IP, PORT} = require("./constants");
 const net = require("net");
 
 // establishes a connection with the game server
 const connect = function () {
   const conn = net.createConnection({
-    host: 'localhost',
-    port: 50541
+    host: IP,
+    port: PORT
   });
 
   conn.on('connect', () => {
     console.log("Lets play Snek!");
   });
-  // process.stdin.on('data', (userInput) => {
-  //   conn.write(userInput); // Send user input for name to server possibly use this later?
-  // });
+
   conn.write("Name: DBC"); //sending preset username to server
   // setTimeout(() => {
   //   conn.write("Move: up");
