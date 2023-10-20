@@ -21,17 +21,17 @@ const handleUserInput = function (data) {
     process.exit(); //ends connection
   }
 
-  if (INPUT_MOVEMENT[data]) {
-    if (intervalMovement) {
-      clearInterval(intervalMovement);
+  if (INPUT_MOVEMENT[data]) { //detects movement keys being pressed
+    if (intervalMovement) { //checks if intervalMoment is true
+      clearInterval(intervalMovement); //clearsInterval
     }
-    intervalMovement = setInterval(() => {
-      connection.write(INPUT_MOVEMENT[data]);
+    intervalMovement = setInterval(() => { //sets interval of movement
+      connection.write(INPUT_MOVEMENT[data]); //moves snek in direction from key press
     }, 50);
-    intervalMovement;
+    intervalMovement; //begins movement
   }
-  if (INPUT_MESSAGE[data]) {
-    connection.write(INPUT_MESSAGE[data]);
+  if (INPUT_MESSAGE[data]) { //checks if key for message is pressed
+    connection.write(INPUT_MESSAGE[data]); //sends message to server
   }
 };
 

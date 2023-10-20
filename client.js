@@ -1,4 +1,4 @@
-const {IP, PORT} = require("./constants");
+const {IP, PORT, alerts} = require("./constants");
 const net = require("net");
 
 // establishes a connection with the game server
@@ -9,19 +9,16 @@ const connect = function () {
   });
 
   conn.on('connect', () => {
-    console.log("Lets play Snek!");
+    console.log(alerts.welcome); //welcome
+    console.log(alerts.controlMovement);
+    console.log(alerts.controlMessages);
   });
 
   conn.write("Name: DBC"); //sending preset username to server
-  // setTimeout(() => {
-  //   conn.write("Move: up");
-  // }, 50);
-  // setInterval(() => {
-  //   conn.write("Move: up");
-  // }, 50);
 
   conn.on('data', (data) => {
     console.log(data);
+    console.log(alerts.quit);
   });
 
   // interpret incoming data as text
